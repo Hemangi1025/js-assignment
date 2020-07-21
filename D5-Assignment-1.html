@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>D5-Assignment-1</title>
+    </head>
+
+    <body>
+
+
+        <script>
+
+            var input= [];
+            var size=10;
+
+           for(var i=0 ;i<size;i++){
+               input[i] = prompt('Enter Element' + (i+1))
+           }
+
+           let odd = input.filter((el=>el%2!=0));
+           console.log(odd);
+
+           let cube = odd.map(function(el){
+           
+               return el**3;
+           })
+           console.log(cube);
+
+
+        </script>
+    </body>
+</html>
