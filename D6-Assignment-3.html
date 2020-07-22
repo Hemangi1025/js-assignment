@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>D6-Assignment-3</title>
+
+    <style>
+        body {
+            padding: 25px;
+            background-color: white;
+            color: black;
+            font-size: 25px;
+        }
+
+        .dark-mode {
+            background-color: black;
+            color: white;
+        }
+    </style>
+
+
+</head>
+
+<body>
+
+    <div id="name">
+        <p>Welcome &nbsp;</p>
+    </div>
+
+    <div id="clock"></div>
+
+    <button onclick="myFunction()">Dark Mode</button>
+
+    <script>
+
+        let name = prompt("What's your name?");
+        document.getElementById("name").innerText += name;
+
+        const ctime = document.getElementById("clock");
+        function time() {
+            let date = new Date();
+            let time = date.toLocaleTimeString();
+            ctime.innerText = time;
+
+        }
+
+        setInterval(time, 1000);
+
+        function myFunction() {
+            var element = document.body;
+            element.classList.toggle("dark-mode");
+        }
+
+    </script>
+</body>
+
+</html>

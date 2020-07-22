@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>D6-Assignment-2</title>
+    </head>
+
+    <body>
+        <div id="mul"></div>
+
+
+        <script>
+
+            let input = prompt("Enter a number");
+            let table;
+
+            for(i=1;i<=10;i++){
+                let a = input*i;
+                table +=  input + " X " + i + "= " + a + " " + "</br>";
+                
+
+            }
+            //console.log(table + "<br>");
+            document.getElementById("mul").innerHTML = table ;
+        </script>
+    </body>
+</html>
