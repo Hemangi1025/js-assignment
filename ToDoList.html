@@ -1,0 +1,102 @@
+<!DOCTYPe html>
+<html>
+
+<head>
+    <title>To-Do List</title>
+
+
+    <style>
+        html,
+        body {
+            height: 100%;
+            text-align: center;
+            padding: 0;
+            margin: 0;
+        }
+
+        .container {
+            height: 100%;
+            padding-top: 200px;
+            background-color: khaki;
+
+        }
+
+        h1 {
+            color: red;
+        }
+
+        ul {
+            display: block;
+            list-style-type: decimal;
+            list-style-position: inside;
+            font-size: 20px;
+            line-height: 200%;
+            
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <div class="container">
+        <h1>The To-Do List</h1>
+
+        <form>
+            <input id="item" type="text" placeholder="New" required>
+        </form>
+
+        <h2>Items</h2>
+        <ul>        </ul>
+
+        <button>Clear All</button>
+
+    </div>
+
+
+    <script>
+
+        const form = document.querySelector('form')
+        const ul = document.querySelector('ul')
+        const button = document.querySelector('button')
+        const input = document.getElementById('item')
+
+        let itemArray = localStorage.getItem('items')
+            ? JSON.parse(localStorage.getItem('items'))
+            : []
+
+        localStorage.setItem('items', JSON.stringify(itemArray))
+        const data = JSON.parse(localStorage.getItem('items'))
+
+        const liMaker = (text) => {
+            const li = document.createElement('li')
+            li.textContent = text
+            ul.appendChild(li)
+        }
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault()
+
+            itemArray.push(input.value)
+            localStorage.setItem('items', JSON.stringify(itemArray))
+            liMaker(input.value)
+            input.value = ''
+        })
+
+        data.forEach((item) => {
+            liMaker(item)
+        })
+
+        button.addEventListener('click', function () {
+            localStorage.clear()
+            while (ul.firstChild) {
+                ul.removeChild(ul.firstChild)
+            }
+        })
+
+
+
+    </script>
+</body>
+
+</html>
